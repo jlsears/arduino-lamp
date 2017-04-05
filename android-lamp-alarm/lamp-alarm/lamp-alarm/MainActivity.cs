@@ -20,11 +20,17 @@ namespace lamp_alarm
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            // Get our button from the layout resource,
-            // and attach an event to it
-            Button button = FindViewById<Button>(Resource.Id.MyButton);
+            ToggleButton activatebutton = FindViewById<ToggleButton>(Resource.Id.activateButton);
 
-            button.Click += delegate { button.Text = string.Format("{0} clicks!", count++); };
+            activatebutton.Click += (o, e) =>
+            {
+                // Perform action on clicks
+                if (activatebutton.Checked)
+                    Toast.MakeText(this, "On", ToastLength.Short).Show();
+
+                else
+                    Toast.MakeText(this, "Off", ToastLength.Short).Show();
+            };
         }
     }
 }
