@@ -11,7 +11,7 @@ namespace lamp_alarm
     [Activity(Label = "lamp_alarm", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        int count = 1;
+        // int count = 1;
 
         protected override void OnCreate(Bundle bundle)
         {
