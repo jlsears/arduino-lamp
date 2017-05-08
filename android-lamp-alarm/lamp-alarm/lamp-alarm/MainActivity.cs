@@ -31,6 +31,8 @@ namespace lamp_alarm
                 else
                     Toast.MakeText(this, "Off", ToastLength.Short).Show();
             };
+
+
         }
     }
 }
