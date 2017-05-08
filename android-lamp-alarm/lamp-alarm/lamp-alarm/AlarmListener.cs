@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using System;
 using Android.Content;
+using Android.Widget;
 
 namespace Core
 {
@@ -8,7 +9,7 @@ namespace Core
     {
         public override void OnReceive(Context context, Intent intent)
         {
-            // throw new NotImplementedException();
+            Toast.MakeText(context, "Pickuped on my alarm event which will eventually lead to automated lamp light!" + i.GetStringExtra("key"), ToastLength.Long).Show();
         }
     }
 }

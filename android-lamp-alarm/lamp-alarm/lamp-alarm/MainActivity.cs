@@ -5,6 +5,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Core;
 
 namespace lamp_alarm
 {
@@ -32,7 +33,14 @@ namespace lamp_alarm
                     Toast.MakeText(this, "Off", ToastLength.Short).Show();
             };
 
+            while (activatebutton.Checked)
+            {
+                var make_light = new MorningAlarmListener();
 
+                var noise_filter = new IntentFilter("com.android.deskclock.ALARM_ALERT");
+
+                RegisterReceiver(make_light, noise_filter);
+            }
         }
     }
 }
