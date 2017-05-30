@@ -1,5 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="lamp_alarm2.lamp_alarm2" android:versionCode="1" android:versionName="1.0">
-	<uses-sdk android:minSdkVersion="16" />
+<!--<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="lamp_alarm2.lamp_alarm2" android:versionCode="1" android:versionName="1.0"> -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="lamp_alarm2.lamp_alarm2" android:installLocation="auto" android:versionCode="1" android:versionName="1.0">
+	<uses-sdk />
+	<!--<uses-sdk /> -->
 	<application android:label="lamp_alarm2"></application>
 </manifest>

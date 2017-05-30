@@ -6,13 +6,15 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Core;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace lamp_alarm
 {
-    [Activity(Label = "lamp_alarm", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "lamp_alarm2", MainLauncher = true)]
+    // , Icon = "@drawable/icon"
     public class MainActivity : Activity
     {
-        // int count = 1;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -21,26 +23,36 @@ namespace lamp_alarm
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
 
-            ToggleButton activatebutton = FindViewById<ToggleButton>(Resource.Id.activateButton);
+            ToggleButton activateButton = FindViewById<ToggleButton>(Resource.Id.activateButton);
 
-            activatebutton.Click += (o, e) =>
+            Console.WriteLine("%%%%% Approaching button click %%%%%");
+
+            activateButton.Click += (o, e) =>
             {
-                // Perform action on clicks
-                if (activatebutton.Checked)
-                    Toast.MakeText(this, "On", ToastLength.Short).Show();
+                Console.WriteLine("%%%%% Inside the button click! %%%%%");
+                // perform action on clicks
+                if (activateButton.Checked)
+                {
+                    Console.WriteLine("%%%%% Inside the if! %%%%%");
+                    Toast.MakeText(this, "on", ToastLength.Short).Show();
+                    return;
+                }
 
                 else
-                    Toast.MakeText(this, "Off", ToastLength.Short).Show();
+                {
+                    Console.WriteLine("%%%%% Inside the else! %%%%%");
+                    Toast.MakeText(this, "off", ToastLength.Short).Show();
+                }
             };
 
-            while (activatebutton.Checked)
+            // Listener for change in on/off button
+            activateButton.CheckedChange += (s, e) =>
             {
-                var make_light = new MorningAlarmListener();
-
-                var noise_filter = new IntentFilter("com.android.deskclock.ALARM_ALERT");
-
-                RegisterReceiver(make_light, noise_filter);
-            }
+                if (activateButton.Checked)
+                {
+                    Console.WriteLine("%%%%% inside CheckedChange event! %%%%%");
+                }
+            };
         }
     }
 }
