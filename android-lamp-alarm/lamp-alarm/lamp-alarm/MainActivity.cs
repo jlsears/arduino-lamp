@@ -25,22 +25,22 @@ namespace lamp_alarm
 
             ToggleButton activateButton = FindViewById<ToggleButton>(Resource.Id.activateButton);
 
-            Console.WriteLine("%%%%% Approaching button click %%%%%");
+            Console.WriteLine("***** Approaching button click *****");
 
             activateButton.Click += (o, e) =>
             {
-                Console.WriteLine("%%%%% Inside the button click! %%%%%");
+                Console.WriteLine("***** Inside the button click! *****");
                 // perform action on clicks
                 if (activateButton.Checked)
                 {
-                    Console.WriteLine("%%%%% Inside the if! %%%%%");
+                    Console.WriteLine("***** Inside the if! *****");
                     Toast.MakeText(this, "on", ToastLength.Short).Show();
                     return;
                 }
 
                 else
                 {
-                    Console.WriteLine("%%%%% Inside the else! %%%%%");
+                    Console.WriteLine("***** Inside the else! *****");
                     Toast.MakeText(this, "off", ToastLength.Short).Show();
                 }
             };
@@ -50,7 +50,18 @@ namespace lamp_alarm
             {
                 if (activateButton.Checked)
                 {
-                    Console.WriteLine("%%%%% inside CheckedChange event! %%%%%");
+                    Console.WriteLine("***** inside CheckedChange event! *****");
+
+                    // Toast message that will briefly pop up verifying on state
+                    Context activatedContext = ApplicationContext;
+                    Toast.MakeText(activatedContext, "Picked up on my alarm event which will eventually lead to automated lamp light!", ToastLength.Long).Show();
+
+                    var make_light = new MorningAlarmListener();
+
+                    var noise_filter = new IntentFilter("com.android.deskclock.alarm_alert");
+
+                    RegisterReceiver(make_light, noise_filter);
+
                 }
             };
         }
