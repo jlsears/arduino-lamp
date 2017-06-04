@@ -7,10 +7,13 @@ namespace Core
 {
     public class MorningAlarmListener : BroadcastReceiver
     {
+        public MorningAlarmListener(){
+        }
+
         public override void OnReceive(Context context, Intent intent)
         {
-            Console.WriteLine("*****Hitting the OnReceive step in AlarmList.cs*****");
-            // Toast.MakeText(context, "Picked up on my alarm event which will eventually lead to automated lamp light!", ToastLength.Long).Show();
+            Console.WriteLine("*****Hitting the OnReceive step in AlarmListener.cs*****");
+
         }
     }
 }

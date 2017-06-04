@@ -56,9 +56,10 @@ namespace lamp_alarm
                     Context activatedContext = ApplicationContext;
                     Toast.MakeText(activatedContext, "Picked up on my alarm event which will eventually lead to automated lamp light!", ToastLength.Long).Show();
 
-                    var make_light = new MorningAlarmListener();
+                    // var make_light = new MorningAlarmListener();
+                    MorningAlarmListener make_light = new MorningAlarmListener();
 
-                    var noise_filter = new IntentFilter("com.android.deskclock.alarm_alert");
+                    IntentFilter noise_filter = new IntentFilter("com.android.deskclock.ALARM_SERVICE");
 
                     RegisterReceiver(make_light, noise_filter);
 
