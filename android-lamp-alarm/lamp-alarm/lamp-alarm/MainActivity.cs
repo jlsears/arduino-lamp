@@ -59,7 +59,7 @@ namespace lamp_alarm
                     // var make_light = new MorningAlarmListener();
                     MorningAlarmListener make_light = new MorningAlarmListener();
 
-                    IntentFilter noise_filter = new IntentFilter("com.android.deskclock.ALARM_SERVICE");
+                    IntentFilter noise_filter = new IntentFilter("com.mobitobi.android.gentlealarm.ALARM_ALERT");
 
                     RegisterReceiver(make_light, noise_filter);
 
